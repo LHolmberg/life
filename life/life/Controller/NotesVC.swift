@@ -8,12 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class NotesVC : UIViewController {
 
+    @IBOutlet weak var selectedIndicator: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        print("hello^2")
-    } 
+        self.selectedIndicator.Animate()
+    }
 }
-

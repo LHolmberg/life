@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		81044E112423762D005028A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81044E102423762D005028A8 /* AppDelegate.swift */; };
-		81044E132423762D005028A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81044E122423762D005028A8 /* ViewController.swift */; };
+		81044E132423762D005028A8 /* NotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81044E122423762D005028A8 /* NotesVC.swift */; };
 		81044E162423762D005028A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81044E142423762D005028A8 /* Main.storyboard */; };
 		81044E182423762F005028A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81044E172423762F005028A8 /* Assets.xcassets */; };
 		81044E1B2423762F005028A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81044E192423762F005028A8 /* LaunchScreen.storyboard */; };
+		811B7228243FC58A002A29E7 /* TodoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811B7227243FC58A002A29E7 /* TodoVC.swift */; };
+		811B722B243FD98C002A29E7 /* AnimateIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811B722A243FD98C002A29E7 /* AnimateIndicatorView.swift */; };
+		811B722D243FDE5E002A29E7 /* CaloriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811B722C243FDE5E002A29E7 /* CaloriesVC.swift */; };
+		8184630A243FB4B4009940EB /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81846309243FB4B4009940EB /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		81044E0D2423762D005028A8 /* life.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = life.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81044E102423762D005028A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		81044E122423762D005028A8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		81044E122423762D005028A8 /* NotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesVC.swift; sourceTree = "<group>"; };
 		81044E152423762D005028A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		81044E172423762F005028A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81044E1A2423762F005028A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81044E1C2423762F005028A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		811B7227243FC58A002A29E7 /* TodoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoVC.swift; sourceTree = "<group>"; };
+		811B722A243FD98C002A29E7 /* AnimateIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateIndicatorView.swift; sourceTree = "<group>"; };
+		811B722C243FDE5E002A29E7 /* CaloriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesVC.swift; sourceTree = "<group>"; };
+		81846309243FB4B4009940EB /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +62,50 @@
 		81044E0F2423762D005028A8 /* life */ = {
 			isa = PBXGroup;
 			children = (
+				811B7229243FD975002A29E7 /* Extension */,
+				81846308243FA8EC009940EB /* Model */,
+				81846307243FA8DB009940EB /* View */,
+				81846306243FA8C6009940EB /* Controller */,
 				81044E102423762D005028A8 /* AppDelegate.swift */,
-				81044E122423762D005028A8 /* ViewController.swift */,
 				81044E142423762D005028A8 /* Main.storyboard */,
 				81044E172423762F005028A8 /* Assets.xcassets */,
 				81044E192423762F005028A8 /* LaunchScreen.storyboard */,
 				81044E1C2423762F005028A8 /* Info.plist */,
 			);
 			path = life;
+			sourceTree = "<group>";
+		};
+		811B7229243FD975002A29E7 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				811B722A243FD98C002A29E7 /* AnimateIndicatorView.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		81846306243FA8C6009940EB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				81044E122423762D005028A8 /* NotesVC.swift */,
+				811B7227243FC58A002A29E7 /* TodoVC.swift */,
+				811B722C243FDE5E002A29E7 /* CaloriesVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		81846307243FA8DB009940EB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				81846309243FB4B4009940EB /* GradientView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		81846308243FA8EC009940EB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +179,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81044E132423762D005028A8 /* ViewController.swift in Sources */,
+				811B722D243FDE5E002A29E7 /* CaloriesVC.swift in Sources */,
+				811B722B243FD98C002A29E7 /* AnimateIndicatorView.swift in Sources */,
+				81044E132423762D005028A8 /* NotesVC.swift in Sources */,
 				81044E112423762D005028A8 /* AppDelegate.swift in Sources */,
+				811B7228243FC58A002A29E7 /* TodoVC.swift in Sources */,
+				8184630A243FB4B4009940EB /* GradientView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
