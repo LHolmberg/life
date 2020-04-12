@@ -33,5 +33,6 @@ class AddTodoItemVC : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        newTodoTxt.becomeFirstResponder()
     }
 }

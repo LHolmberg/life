@@ -15,14 +15,14 @@ class TodoVC : UIViewController , UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var selectedIndicator: UIView!
     var arr = UserDefaults.standard.stringArray(forKey: "todoList") ?? [String]()
     
-    @IBAction func AddTodoItem(_ sender: Any) {
-        let answ = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "raID") as! AddTodoItemVC
-        self.addChild(answ)
-        answ.view.frame = self.view.frame
-        self.view.addSubview(answ.view)
-        answ.didMove(toParent: self)
-    }
     
+    @IBAction func AddTodoItem(_ sender: Any) {
+        let addItemPopup = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "raID") as! AddTodoItemVC
+        self.addChild(addItemPopup)
+        addItemPopup.view.frame = self.view.frame
+        self.view.addSubview(addItemPopup.view)
+        addItemPopup.didMove(toParent: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +36,12 @@ class TodoVC : UIViewController , UITableViewDataSource, UITableViewDelegate {
         return arr.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 65.0;
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CountryTableViewCell
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TodoItemCell
         cell.todoTxt.text = arr[indexPath.row]
         
         return cell
@@ -51,13 +54,8 @@ class TodoVC : UIViewController , UITableViewDataSource, UITableViewDelegate {
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
-
 }
 
-class CountryTableViewCell: UITableViewCell {
+class TodoItemCell: UITableViewCell {
     @IBOutlet weak var todoTxt: UILabel!
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
 }

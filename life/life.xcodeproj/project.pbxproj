@@ -16,6 +16,9 @@
 		811B722B243FD98C002A29E7 /* AnimateIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811B722A243FD98C002A29E7 /* AnimateIndicatorView.swift */; };
 		811B722D243FDE5E002A29E7 /* CaloriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811B722C243FDE5E002A29E7 /* CaloriesVC.swift */; };
 		8184630A243FB4B4009940EB /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81846309243FB4B4009940EB /* GradientView.swift */; };
+		819DE6E724435E26000DA158 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819DE6E624435E26000DA158 /* CheckBox.swift */; };
+		819DE6E924436AE0000DA158 /* CreateNoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819DE6E824436AE0000DA158 /* CreateNoteVC.swift */; };
+		819DE6EB2443D199000DA158 /* EditNoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819DE6EA2443D199000DA158 /* EditNoteVC.swift */; };
 		819FE13524429A56007271AB /* AddTodoItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819FE13424429A56007271AB /* AddTodoItemVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +34,9 @@
 		811B722A243FD98C002A29E7 /* AnimateIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateIndicatorView.swift; sourceTree = "<group>"; };
 		811B722C243FDE5E002A29E7 /* CaloriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesVC.swift; sourceTree = "<group>"; };
 		81846309243FB4B4009940EB /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		819DE6E624435E26000DA158 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		819DE6E824436AE0000DA158 /* CreateNoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteVC.swift; sourceTree = "<group>"; };
+		819DE6EA2443D199000DA158 /* EditNoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteVC.swift; sourceTree = "<group>"; };
 		819FE13424429A56007271AB /* AddTodoItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoItemVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +98,8 @@
 				811B7227243FC58A002A29E7 /* TodoVC.swift */,
 				811B722C243FDE5E002A29E7 /* CaloriesVC.swift */,
 				819FE13424429A56007271AB /* AddTodoItemVC.swift */,
+				819DE6E824436AE0000DA158 /* CreateNoteVC.swift */,
+				819DE6EA2443D199000DA158 /* EditNoteVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -100,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				81846309243FB4B4009940EB /* GradientView.swift */,
+				819DE6E624435E26000DA158 /* CheckBox.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -182,12 +191,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				819DE6E724435E26000DA158 /* CheckBox.swift in Sources */,
 				819FE13524429A56007271AB /* AddTodoItemVC.swift in Sources */,
 				811B722D243FDE5E002A29E7 /* CaloriesVC.swift in Sources */,
+				819DE6E924436AE0000DA158 /* CreateNoteVC.swift in Sources */,
 				811B722B243FD98C002A29E7 /* AnimateIndicatorView.swift in Sources */,
 				81044E132423762D005028A8 /* NotesVC.swift in Sources */,
 				81044E112423762D005028A8 /* AppDelegate.swift in Sources */,
 				811B7228243FC58A002A29E7 /* TodoVC.swift in Sources */,
+				819DE6EB2443D199000DA158 /* EditNoteVC.swift in Sources */,
 				8184630A243FB4B4009940EB /* GradientView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
