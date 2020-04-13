@@ -9,16 +9,18 @@
 import UIKit
 
 class EditNoteVC : UIViewController {
+    
     @IBOutlet weak var titleTxt: UILabel!
     @IBOutlet weak var contentTxt: UITextView!
     
     @IBAction func Back(_ sender: Any) {
         let parentVC = (self.parent)! as! NotesVC
-        parentVC.arr.remove(at: 0)
-        parentVC.selectedNote["content"] = contentTxt.text
-        parentVC.arr.insert(parentVC.selectedNote, at: 0)
         
-        UserDefaults.standard.set(parentVC.arr, forKey: "notes")
+        parentVC.savedNotes.remove(at: 0)
+        parentVC.selectedNote["content"] = contentTxt.text
+        parentVC.savedNotes.insert(parentVC.selectedNote, at: 0)
+        
+        UserDefaults.standard.set(parentVC.savedNotes, forKey: "notes")
         parentVC.tableView.reloadData()
         self.view.removeFromSuperview()
     }
@@ -26,8 +28,9 @@ class EditNoteVC : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let parentVC = (self.parent)! as! NotesVC
-        parentVC.arr.insert(parentVC.selectedNote, at: 0)
-        UserDefaults.standard.set(parentVC.arr, forKey: "notes")
+        
+        parentVC.savedNotes.insert(parentVC.selectedNote, at: 0)
+        UserDefaults.standard.set(parentVC.savedNotes, forKey: "notes")
         
         titleTxt.text = parentVC.selectedNote["title"]
         contentTxt.text = parentVC.selectedNote["content"]

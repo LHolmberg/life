@@ -13,11 +13,11 @@ class TodoVC : UIViewController , UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var selectedIndicator: UIView!
-    var arr = UserDefaults.standard.stringArray(forKey: "todoList") ?? [String]()
-    
+    var todoListSaved = UserDefaults.standard.stringArray(forKey: "todoList") ?? [String]()
     
     @IBAction func AddTodoItem(_ sender: Any) {
         let addItemPopup = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "raID") as! AddTodoItemVC
+        
         self.addChild(addItemPopup)
         addItemPopup.view.frame = self.view.frame
         self.view.addSubview(addItemPopup.view)
@@ -33,7 +33,7 @@ class TodoVC : UIViewController , UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arr.count
+        return todoListSaved.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -42,20 +42,17 @@ class TodoVC : UIViewController , UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TodoItemCell
-        cell.todoTxt.text = arr[indexPath.row]
+        cell.todoTxt.text = todoListSaved[indexPath.row]
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            arr.remove(at: indexPath.row)
-            UserDefaults.standard.set(arr, forKey: "todoList")
+            todoListSaved.remove(at: indexPath.row)
+            UserDefaults.standard.set(todoListSaved, forKey: "todoList")
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
 }
 
-class TodoItemCell: UITableViewCell {
-    @IBOutlet weak var todoTxt: UILabel!
-}

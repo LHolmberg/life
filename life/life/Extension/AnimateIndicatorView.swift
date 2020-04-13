@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIView {
+    
     func Animate() {
         let timeInterval : Double = 1 * pow(10, -5)
         let maxWidth : CGFloat = 50.0

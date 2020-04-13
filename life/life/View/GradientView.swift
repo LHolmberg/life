@@ -6,12 +6,11 @@
 //  Copyright © 2020 Stefan Holmberg. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class GradientView : UIView {
     
-    func setGradientBackground() {
+    func SetGradientBackground() {
         let colorTop =  UIColor(red: 255.0/255.0, green: 149.0/255.0, blue: 0.0/255.0, alpha: 1.0).cgColor
         let colorBottom = UIColor(red: 255.0/255.0, green: 94.0/255.0, blue: 58.0/255.0, alpha: 1.0).cgColor
         
@@ -25,6 +24,6 @@ class GradientView : UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setGradientBackground()
+        SetGradientBackground()
     }
 }

@@ -13,11 +13,12 @@ class NotesVC : UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var selectedIndicator: UIView!
     
-    var arr = UserDefaults.standard.array(forKey: "notes") ?? [Dictionary<String,String>]()
+    var savedNotes = UserDefaults.standard.array(forKey: "notes") ?? [Dictionary<String,String>]()
     var selectedNote = Dictionary<String,String>()
     
     @IBAction func CreateNote(_ sender: Any) {
         let createNotePopup = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "cnID") as! CreateNoteVC
+        
         self.addChild(createNotePopup)
         createNotePopup.view.frame = self.view.frame
         self.view.addSubview(createNotePopup.view)
@@ -27,13 +28,14 @@ class NotesVC : UIViewController, UITableViewDataSource, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.selectedIndicator.Animate()
+        
         tableView.delegate = self
         tableView.dataSource = self
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedNote = arr[indexPath.row] as! [String : String]
-        arr.remove(at: indexPath.row)
+        selectedNote = savedNotes[indexPath.row] as! [String : String]
+        savedNotes.remove(at: indexPath.row)
         
         let editNotePopup = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "enID") as! EditNoteVC
         self.addChild(editNotePopup)
@@ -43,7 +45,7 @@ class NotesVC : UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arr.count
+        return savedNotes.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -52,22 +54,19 @@ class NotesVC : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as! NoteCell
+        
         if let notes = UserDefaults.standard.array(forKey: "notes") as? [[String: Any]] {
             cell.noteTitle.text = notes[indexPath.row]["title"] as! String?
         }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            arr.remove(at: indexPath.row)
-            UserDefaults.standard.set(arr, forKey: "notes")
+            savedNotes.remove(at: indexPath.row)
+            UserDefaults.standard.set(savedNotes, forKey: "notes")
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
-}
-
-class NoteCell: UITableViewCell {
-    @IBOutlet weak var noteTitle: UILabel!
-    
 }
