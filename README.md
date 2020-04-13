@@ -4,3 +4,5 @@
 - Design patterns
 - Networking
 - UI/UX Design
+- Customized views
+- Extensions
