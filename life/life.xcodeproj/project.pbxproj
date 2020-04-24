@@ -24,6 +24,10 @@
 		819DE6E924436AE0000DA158 /* CreateNoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819DE6E824436AE0000DA158 /* CreateNoteVC.swift */; };
 		819DE6EB2443D199000DA158 /* EditNoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819DE6EA2443D199000DA158 /* EditNoteVC.swift */; };
 		819FE13524429A56007271AB /* AddTodoItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819FE13424429A56007271AB /* AddTodoItemVC.swift */; };
+		81A89D7224476FBF0026E2A5 /* AddFoodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A89D7124476FBF0026E2A5 /* AddFoodVC.swift */; };
+		81C2E9AA24479C5700AD790C /* SearchedFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C2E9A924479C5700AD790C /* SearchedFoodCell.swift */; };
+		81D69D4724483F490044700A /* AddedFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D69D4624483F490044700A /* AddedFoodCell.swift */; };
+		81D69D492448747A0044700A /* ConfirmNewFoodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D69D482448747A0044700A /* ConfirmNewFoodVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,10 @@
 		819DE6E824436AE0000DA158 /* CreateNoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteVC.swift; sourceTree = "<group>"; };
 		819DE6EA2443D199000DA158 /* EditNoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteVC.swift; sourceTree = "<group>"; };
 		819FE13424429A56007271AB /* AddTodoItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoItemVC.swift; sourceTree = "<group>"; };
+		81A89D7124476FBF0026E2A5 /* AddFoodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodVC.swift; sourceTree = "<group>"; };
+		81C2E9A924479C5700AD790C /* SearchedFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedFoodCell.swift; sourceTree = "<group>"; };
+		81D69D4624483F490044700A /* AddedFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddedFoodCell.swift; path = life/Model/AddedFoodCell.swift; sourceTree = SOURCE_ROOT; };
+		81D69D482448747A0044700A /* ConfirmNewFoodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmNewFoodVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +117,8 @@
 				819FE13424429A56007271AB /* AddTodoItemVC.swift */,
 				819DE6E824436AE0000DA158 /* CreateNoteVC.swift */,
 				819DE6EA2443D199000DA158 /* EditNoteVC.swift */,
+				81A89D7124476FBF0026E2A5 /* AddFoodVC.swift */,
+				81D69D482448747A0044700A /* ConfirmNewFoodVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -126,8 +136,10 @@
 		81846308243FA8EC009940EB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				81D69D4624483F490044700A /* AddedFoodCell.swift */,
 				814378222444987600F9F550 /* TodoItemCell.swift */,
 				814378242444997800F9F550 /* NoteCell.swift */,
+				81C2E9A924479C5700AD790C /* SearchedFoodCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -142,6 +154,7 @@
 				81044E092423762D005028A8 /* Sources */,
 				81044E0A2423762D005028A8 /* Frameworks */,
 				81044E0B2423762D005028A8 /* Resources */,
+				81CB4EA124539346007470D3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -198,6 +211,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		81CB4EA124539346007470D3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		81044E092423762D005028A8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -207,9 +240,13 @@
 				819DE6E724435E26000DA158 /* CheckBox.swift in Sources */,
 				819FE13524429A56007271AB /* AddTodoItemVC.swift in Sources */,
 				814378252444997800F9F550 /* NoteCell.swift in Sources */,
+				81D69D492448747A0044700A /* ConfirmNewFoodVC.swift in Sources */,
 				811B722D243FDE5E002A29E7 /* CaloriesVC.swift in Sources */,
 				819DE6E924436AE0000DA158 /* CreateNoteVC.swift in Sources */,
+				81A89D7224476FBF0026E2A5 /* AddFoodVC.swift in Sources */,
+				81D69D4724483F490044700A /* AddedFoodCell.swift in Sources */,
 				811B722B243FD98C002A29E7 /* AnimateIndicatorView.swift in Sources */,
+				81C2E9AA24479C5700AD790C /* SearchedFoodCell.swift in Sources */,
 				814378292444AA0500F9F550 /* Circle.swift in Sources */,
 				81044E132423762D005028A8 /* NotesVC.swift in Sources */,
 				81044E112423762D005028A8 /* AppDelegate.swift in Sources */,
