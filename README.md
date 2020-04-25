@@ -1,4 +1,5 @@
 # What I specifically learned or now know more about:
+- SwiftLint
 - UITableViews
 - UserDefaults
 - Design patterns
