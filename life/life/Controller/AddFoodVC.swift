@@ -13,19 +13,35 @@ class AddFoodVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     var foodId = Int()
-    var arr = [Int]()
+    var arr = [[String: Any]]()
     // swiftlint:disable identifier_name
     @IBAction func Cancel(_ sender: Any) {
         self.view.removeFromSuperview()
     }
-    
     @IBAction func SearchFood(_ sender: Any) {
-        let num = Int(foodName.text ?? "32")!
-        arr.removeAll()
-        for val in 1...num {
-            arr.append(val)
-        }
-        tableView.reloadData()
+        let url = "https://api.edamam.com/api/food-database/parser?nutrition-type=logging&ingr=" +
+            foodName.text! + "&app_id=ff4e1b20&app_key=2d9c6a8b856074d6722ee656b76d6407"
+        URLSession.shared.dataTask(with: URL(string: url)!) { (data, res, err) in
+            
+            if let d = data {
+                if let value = String(data: d, encoding: String.Encoding.ascii) {
+                    
+                    if let jsonData = value.data(using: String.Encoding.utf8) {
+                        do {
+                            // swiftlint:disable force_cast
+                            let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as! [String: Any]
+                            self.arr = json["hints"] as! [[String: Any]]
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
+                        } catch {
+                            print("ERROR \(error.localizedDescription)")
+                        }
+                    }
+                }
+                
+            }
+            }.resume()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,13 +58,19 @@ class AddFoodVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // swiftlint:disable force_cast
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchedFoodCell",
             for: indexPath) as! SearchedFoodCell
-        // swiftlint:enable force_cast
-        cell.foodName.text = String(arr[indexPath.row])
+        if let foodLabel = arr[indexPath.row]["food"] as? [String: Any] {
+            cell.foodName.text = foodLabel["label"] as? String
+        }
         cell.addFood.addTarget(self, action: #selector(Add), for: .touchUpInside)
         cell.addFood.tag = indexPath.row
         return cell
     }
-
+    func stringFromAny(_ value: Any?) -> String {
+        if let nonNil = value, !(nonNil is NSNull) {
+            return String(describing: nonNil)
+        }
+        return ""
+    }
     @objc func Add(sender: UIButton!) {
         foodId = sender.tag
         // swiftlint:disable force_cast

@@ -10,6 +10,7 @@ import UIKit
 class EditNoteVC: UIViewController {
     @IBOutlet weak var titleTxt: UILabel!
     @IBOutlet weak var contentTxt: UITextView!
+    let uDef = UserDefaults.standard
     // swiftlint:disable identifier_name
     @IBAction func Back(_ sender: Any) {
         // swiftlint:disable force_cast
@@ -17,7 +18,7 @@ class EditNoteVC: UIViewController {
         parentVC.savedNotes.remove(at: 0)
         parentVC.selectedNote["content"] = contentTxt.text
         parentVC.savedNotes.insert(parentVC.selectedNote, at: 0)
-        UserDefaults.standard.set(parentVC.savedNotes, forKey: "notes")
+        uDef.set(parentVC.savedNotes, forKey: "notes")
         parentVC.tableView.reloadData()
         self.view.removeFromSuperview()
     }
@@ -26,7 +27,7 @@ class EditNoteVC: UIViewController {
         let parentVC = (self.parent)! as! NotesVC
         // swiftlint:enable force_cast
         parentVC.savedNotes.insert(parentVC.selectedNote, at: 0)
-        UserDefaults.standard.set(parentVC.savedNotes, forKey: "notes")
+        uDef.set(parentVC.savedNotes, forKey: "notes")
         titleTxt.text = parentVC.selectedNote["title"]
         contentTxt.text = parentVC.selectedNote["content"]
         contentTxt.becomeFirstResponder()

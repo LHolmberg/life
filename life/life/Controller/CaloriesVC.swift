@@ -13,9 +13,9 @@ class CaloriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var currentWeekdayTxt: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var currentIntakeTxt: UILabel!
-
-    var eatenFood: [[String: Any]] = (UserDefaults.standard.array(forKey: "eatenFood")
-        as? [[String: Any]]) ?? [[String: Any]()]
+    let uDef = UserDefaults.standard
+    
+    var eatenFood = [[String: Any]]()
     // swiftlint:disable identifier_name
     @IBAction func AddNewFood(_ sender: Any) {
         let addFoodPopup = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "afID")
@@ -28,7 +28,13 @@ class CaloriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         super.viewDidLoad()
         self.selectedIndicator.animate()
         let date = Date()
-        currentIntakeTxt.text = String(UserDefaults.standard.integer(forKey: "intakeToday"))
+        if date.getCurrentDate() != uDef.string(forKey: "previousDate") {
+            uDef.set(date.getCurrentDate(), forKey: "previousDate")
+            uDef.set(0, forKey: "intakeToday")
+            uDef.set([[String: Any]()], forKey: "eatenFood")
+        }
+        eatenFood = (uDef.array(forKey: "eatenFood") as? [[String: Any]]) ?? [[String: Any]()]
+        currentIntakeTxt.text = String(uDef.integer(forKey: "intakeToday"))
         currentDateTxt.text = date.getCurrentDate()
         currentWeekdayTxt.text = date.getCurrentWeekday()
         tableView.delegate = self
@@ -58,11 +64,15 @@ class CaloriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                    forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let val: [String: Any] = eatenFood[indexPath.row]
-            UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "intakeToday") -
-                Int(stringFromAny(val["calories"]))!, forKey: "intakeToday")
-            currentIntakeTxt.text = String(UserDefaults.standard.integer(forKey: "intakeToday"))
+            let calories = val["calories"] as? Double ?? 0
+            uDef.set(Double(uDef.integer(forKey: "intakeToday")) - calories,
+                                      forKey: "intakeToday")
+            if uDef.integer(forKey: "intakeToday") < 0 {
+                uDef.set(0, forKey: "intakeToday")
+            }
+            currentIntakeTxt.text = String(uDef.integer(forKey: "intakeToday"))
             eatenFood.remove(at: indexPath.row)
-            UserDefaults.standard.set(eatenFood, forKey: "eatenFood")
+            uDef.set(eatenFood, forKey: "eatenFood")
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
