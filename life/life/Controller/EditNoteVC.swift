@@ -1,10 +1,3 @@
-//
-//  EditNoteVC.swift
-//  life
-//
-//  Created by Lukas Holmberg on 2020-04-13.
-//
-
 import UIKit
 
 class EditNoteVC: UIViewController {

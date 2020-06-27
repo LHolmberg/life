@@ -1,10 +1,3 @@
-//
-//  Date.swift
-//  life
-//
-//  Created by Lukas Holmberg on 2020-04-13.
-//
-
 import Foundation
 
 extension Date {

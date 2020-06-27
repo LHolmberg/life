@@ -1,10 +1,3 @@
-//
-//  TodoVC.swift
-//  life
-//
-//  Created by Lukas Holmberg on 2020-04-09.
-//
-
 import UIKit
 
 class TodoVC: UIViewController, UITableViewDataSource, UITableViewDelegate {

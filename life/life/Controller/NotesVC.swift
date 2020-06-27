@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  life
-//
-//  Created by Lukas Holmberg on 2020-03-19.
-//
-
 import UIKit
 
 class NotesVC: UIViewController, UITableViewDataSource, UITableViewDelegate {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81014BEA24A7C44800802331 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81014BE924A7C44800802331 /* RoundedView.swift */; };
 		81044E112423762D005028A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81044E102423762D005028A8 /* AppDelegate.swift */; };
 		81044E132423762D005028A8 /* NotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81044E122423762D005028A8 /* NotesVC.swift */; };
 		81044E162423762D005028A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81044E142423762D005028A8 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		81014BE924A7C44800802331 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		81044E0D2423762D005028A8 /* life.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = life.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81044E102423762D005028A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81044E122423762D005028A8 /* NotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesVC.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				81846309243FB4B4009940EB /* GradientView.swift */,
 				819DE6E624435E26000DA158 /* CheckBox.swift */,
 				814378282444AA0500F9F550 /* Circle.swift */,
+				81014BE924A7C44800802331 /* RoundedView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81014BEA24A7C44800802331 /* RoundedView.swift in Sources */,
 				814378232444987600F9F550 /* TodoItemCell.swift in Sources */,
 				819DE6E724435E26000DA158 /* CheckBox.swift in Sources */,
 				819FE13524429A56007271AB /* AddTodoItemVC.swift in Sources */,

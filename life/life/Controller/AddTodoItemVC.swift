@@ -1,10 +1,3 @@
-//
-//  AddTodoItemVC.swift
-//  life
-//
-//  Created by Lukas Holmberg on 2020-04-12.
-//
-
 import UIKit
 
 class AddTodoItemVC: UIViewController {

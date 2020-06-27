@@ -1,10 +1,3 @@
-//
-//  CaloriesVC.swift
-//  life
-//
-//  Created by Lukas Holmberg on 2020-04-10.
-//
-
 import UIKit
 
 class CaloriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -34,7 +27,7 @@ class CaloriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             uDef.set([[String: Any]()], forKey: "eatenFood")
         }
         eatenFood = (uDef.array(forKey: "eatenFood") as? [[String: Any]]) ?? [[String: Any]()]
-        currentIntakeTxt.text = String(uDef.integer(forKey: "intakeToday"))
+        currentIntakeTxt.text = String(uDef.integer(forKey: "intakeToday")) + " kcal"
         currentDateTxt.text = date.getCurrentDate()
         currentWeekdayTxt.text = date.getCurrentWeekday()
         tableView.delegate = self
@@ -70,7 +63,7 @@ class CaloriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             if uDef.integer(forKey: "intakeToday") < 0 {
                 uDef.set(0, forKey: "intakeToday")
             }
-            currentIntakeTxt.text = String(uDef.integer(forKey: "intakeToday"))
+            currentIntakeTxt.text = String(uDef.integer(forKey: "intakeToday")) + " kcal"
             eatenFood.remove(at: indexPath.row)
             uDef.set(eatenFood, forKey: "eatenFood")
             self.tableView.deleteRows(at: [indexPath], with: .automatic)

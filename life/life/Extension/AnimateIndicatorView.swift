@@ -1,10 +1,3 @@
-//
-//  AnimateIndicatorView.swift
-//  life
-//
-//  Created by Lukas Holmberg on 2020-04-10.
-//
-
 import UIKit
 
 extension UIView {
