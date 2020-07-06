@@ -34,7 +34,7 @@ class AddFoodVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 }
                 
             }
-            }.resume()
+        }.resume()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
